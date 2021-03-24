@@ -1,23 +1,19 @@
 import React from 'react'
 
 export default class ListToDo extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <ul id="myUL">
                 {this.props.listToDo.map((item, key) => (
                     <li 
-                        key={key} 
+                        key={item.id} 
                         className={item.isComplete ? 'checked': ''}
-                        onClick={e => this.props.action(key)}
+                        onClick={e => this.props.action(item.id)}
                     >
-                        {item.name}
+                        { item.name }
                         <button 
                             className="button"
-                            onClick={e => {e.stopPropagation(); this.props.handleRemove(key)}}
+                            onClick={e => {e.stopPropagation(); this.props.handleRemove(item.id)}}
                         >
                             Remove
                         </button>
