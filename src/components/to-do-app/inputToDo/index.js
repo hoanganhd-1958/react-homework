@@ -15,8 +15,8 @@ export default class InputToDo extends React.Component {
     render(){
         return (
             <div>
-                <input type="text" id="myInput" placeholder="Title..." onKeyUp={e => this.handleType(e)}/>
-                <span onClick={() => this.props.action(this.state.todo)} className="addBtn">Add</span>
+                <input type="text" id="myInput" placeholder="Title..." onChange={e => this.handleType(e)} value={this.state.todo}/>
+                <button disable={this.state.todo !== ''} onClick={() => { this.props.action(this.state.todo); this.setState({todo : ''}); }} className="addBtn">Add</button>
             </div>
         );
     }

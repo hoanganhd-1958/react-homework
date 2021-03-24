@@ -106,8 +106,20 @@
     cursor: pointer;
     transition: 0.3s;
     border-radius: 0;
+    border: none;
   }
   
   .addBtn:hover {
     background-color: #bbb;
+  }
+  .button {
+    background-color: #088b1e; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    float: right;
   }

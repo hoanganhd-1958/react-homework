@@ -8,13 +8,19 @@ export default class ListToDo extends React.Component {
     render() {
         return (
             <ul id="myUL">
-                {this.props.listToDo.map(item => (
+                {this.props.listToDo.map((item, key) => (
                     <li 
-                        key={item.id} 
+                        key={key} 
                         className={item.isComplete ? 'checked': ''}
-                        onClick={e => this.props.action(item.id)}
+                        onClick={e => this.props.action(key)}
                     >
                         {item.name}
+                        <button 
+                            className="button"
+                            onClick={e => {e.stopPropagation(); this.props.handleRemove(key)}}
+                        >
+                            Remove
+                        </button>
                     </li>
                 ))}
             </ul>
